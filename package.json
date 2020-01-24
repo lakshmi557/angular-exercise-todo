@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:coverage": "ng test --watch=false --browsers=Headless --codeCoverage=true",
+    "test:coverage": "ng test --watch=false --browsers=Headless --codeCoverage=false",
     "lint": "eslint \"{src,e2e}/**/*.{js,ts}\"",
     "lint:fix": "npm run lint -- --fix",
     "ci": "npm run lint && npm run test:coverage && npm run build",

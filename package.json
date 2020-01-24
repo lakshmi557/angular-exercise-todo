@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:coverage": "ng test --watch=false --browsers=Headless --codeCoverage=false",
+    "test:coverage": "ng test --watch=false --browsers=Headless --codeCoverage=true",
     "lint": "eslint \"{src,e2e}/**/*.{js,ts}\"",
     "lint:fix": "npm run lint -- --fix",
     "ci": "npm run lint && npm run test:coverage && npm run build",
@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run ci",
+      "_comment":{"pre-push": "npm run ci"},
       "pre-commit": "lint-staged"
     }
   },

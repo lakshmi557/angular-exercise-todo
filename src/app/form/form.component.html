@@ -1,0 +1,145 @@
+<form #TodoForm="ngForm" ngNativeValidate (ngSubmit)="saveDetails(TodoForm)">
+  <div class="panel panel-primary">
+    <div class="panel panel-body background">
+      <div
+        class="form-group"
+        [class.has-error]="title.invalid && title.touched"
+      >
+        <label for="title" class="control-label">Title</label>
+        <input
+          required
+          id="title"
+          type="text"
+          placeholder="Enter the task name"
+          name="title"
+          [(ngModel)]="taskForm.title"
+          class="form-control input-lg"
+          #title="ngModel"
+        />
+        <span class="help-block" *ngIf="title.invalid && title.touched"
+          >Required</span
+        >
+      </div>
+
+      <div
+        class="form-group"
+        [class.has-error]="description.invalid && description.touched"
+      >
+        <label for="description" class="control-label">Description</label>
+        <input
+          required
+          id="description"
+          type="text"
+          name="description"
+          placeholder="Enter the task description"
+          [(ngModel)]="taskForm.description"
+          class="form-control input-lg"
+          #description="ngModel"
+        />
+        <span
+          class="help-block"
+          *ngIf="description.invalid && description.touched"
+          >Required</span
+        >
+      </div>
+      <div
+        class="form-group"
+        [class.has-error]="category.invalid && category.touched"
+      >
+        <label for="category" class="control-label">Category</label>
+        <select
+          required
+          id="category"
+          name="category"
+          [(ngModel)]="taskForm.category"
+          class="form-control input-lg"
+          #category="ngModel"
+        >
+          <option disabled value="null">Select the task category</option>
+          <option *ngFor="let category of categories" [value]="category.id">{{
+            category.name
+          }}</option>
+        </select>
+        <span class="help-block" *ngIf="category.invalid && category.touched"
+          >Required</span
+        >
+      </div>
+
+      <div
+        *ngIf="taskForm.category === '1'"
+        class="form-group col-xs-12"
+        [class.has-error]="label.invalid && label.touched"
+      >
+        <label class="control-label">Label</label>
+        <div class="row">
+          <div class="form-control input-lg">
+            <label class="radio-inline col-xs-6">
+              <input
+                required
+                type="radio"
+                value="Travel"
+                name="label"
+                [(ngModel)]="taskForm.label"
+                #label="ngModel"
+              />
+              Travel
+            </label>
+            <label class="radio-inline col-xs-5">
+              <input
+                required
+                type="radio"
+                value="Food"
+                name="label"
+                [(ngModel)]="taskForm.label"
+                #label="ngModel"
+              />
+              Food
+            </label>
+          </div>
+          <span class="help-block" *ngIf="label.invalid && label.touched"
+            >Required</span
+          >
+        </div>
+      </div>
+      <div
+        *ngIf="taskForm.category === '2'"
+        class="form-group col-xs-12"
+        [class.has-error]="label.invalid && label.touched"
+      >
+        <label class="control-label">Label</label>
+        <div class="row">
+          <div class="form-control input-lg">
+            <label class="radio-inline col-xs-6">
+              <input
+                required
+                type="radio"
+                value="Rent"
+                name="label"
+                [(ngModel)]="taskForm.label"
+                #label="ngModel"
+              />
+              Rent
+            </label>
+            <label class="radio-inline col-xs-5">
+              <input
+                required
+                type="radio"
+                value="Groceries"
+                name="label"
+                [(ngModel)]="taskForm.label"
+                #label="ngModel"
+              />
+              Groceries
+            </label>
+          </div>
+          <span class="help-block" *ngIf="label.invalid && label.touched"
+            >Required</span
+          >
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg active center-block">
+        Add Task
+      </button>
+    </div>
+  </div>
+</form>

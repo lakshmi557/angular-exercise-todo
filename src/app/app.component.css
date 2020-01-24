@@ -1,0 +1,11 @@
+.header {
+  min-height: 70px;
+  width: auto;
+  background-color: rgb(40, 96, 144);
+  text-align: center;
+  font-size: 300%;
+  color: rgb(247, 251, 252);
+}
+.panel {
+  border: 0;
+}
